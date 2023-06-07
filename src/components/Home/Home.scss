@@ -1,0 +1,22 @@
+.home{
+   width: 1170px;
+   margin: 0 auto;
+   .home__shoes{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .home__shoes__item{
+         width: 270px;
+      }
+      
+   }
+   .home__shoes__button{
+      width: 150px;
+      height: 40px;
+      border: 2px solid salmon;
+      border-radius: 10px;
+      color: salmon;
+   }
+}
+
+
