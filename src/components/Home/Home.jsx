@@ -139,9 +139,9 @@ export const Home = () => {
     });
   }, [visibleItems]);
 
-  useEffect(() => {
-    filterShoes();
-  }, [sortType, selectedSize, selectedGender, selectedColor]);
+   useEffect(() => {
+      filterShoes();
+   }, [sortType, selectedSize, selectedGender, selectedColor]);
 
   const filterShoes = () => {
     let filteredData = [...shoesData];
