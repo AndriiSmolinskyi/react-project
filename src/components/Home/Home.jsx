@@ -13,12 +13,20 @@ export const Home = () => {
     });
   }, []);
 
-  const handleSearch = (query) => {
-    const filteredData = shoesData.filter((item) =>
-      item.name.toLowerCase().includes(query.toLowerCase())
-    );
-    setFilteredShoes(filteredData);
-  };
+   const handleSearch = (query) => {
+      const searchQueries = query.toLowerCase().split(" ");
+   
+      const filteredData = shoesData.filter((item) => {
+      const itemName = item.name.toLowerCase();
+      const itemBrand = item.brand_name.toLowerCase();
+   
+      return searchQueries.every((searchQuery) =>
+         itemName.includes(searchQuery) || itemBrand.includes(searchQuery)
+      );
+      });
+   
+      setFilteredShoes(filteredData);
+   };
 
   return (
     <div className="shoes-item__block">

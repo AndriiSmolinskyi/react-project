@@ -9,7 +9,7 @@ export const SearchBar = ({ onSearch }) => {
 
   useEffect(() => {
     onSearch(searchQuery);
-  }, [searchQuery, onSearch]);
+  }, [searchQuery]);
 
   return (
     <input
