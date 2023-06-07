@@ -3,12 +3,16 @@
    margin: 0 auto;
    .home__shoes{
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
+      
       .home__shoes__item{
-         width: 270px;
+         width: 25%;
       }
       
+   }
+   .home__btn{
+      display: flex;
+      justify-content: center;
    }
    .home__shoes__button{
       width: 150px;
@@ -16,6 +20,11 @@
       border: 2px solid salmon;
       border-radius: 10px;
       color: salmon;
+      margin-top: 25px;
+   }
+   .home__shoes__button:hover{     
+      background-color: salmon;
+      color: white;
    }
 }
 
