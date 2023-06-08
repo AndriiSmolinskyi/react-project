@@ -1,0 +1,16 @@
+
+.header{
+   width: 100%;
+   height: 50px;
+   background-color: #EB3C3C;
+   .header__nav{
+      max-width: 1170px;
+      margin: 0 auto;
+      .header__nav__ul{
+         display: flex;
+         height: 50px;
+         align-items: center;
+         justify-content: space-around;
+      }
+   }
+}

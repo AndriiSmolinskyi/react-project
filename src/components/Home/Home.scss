@@ -1,5 +1,5 @@
 .home{
-   width: 1170px;
+   max-width: 1170px;
    margin: 0 auto;
    .home__shoes{
       display: flex;
@@ -7,6 +7,9 @@
       
       .home__shoes__item{
          width: 25%;
+         @media (max-width: 569px) {
+            width: 50%;
+          }
       }
       
    }
@@ -17,13 +20,13 @@
    .home__shoes__button{
       width: 150px;
       height: 40px;
-      border: 2px solid salmon;
+      border: 2px solid #EB3C3C;
       border-radius: 10px;
-      color: salmon;
+      color: #EB3C3C;
       margin-top: 25px;
    }
    .home__shoes__button:hover{     
-      background-color: salmon;
+      background-color: #EB3C3C;
       color: white;
    }
    .home__nav{
