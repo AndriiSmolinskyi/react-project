@@ -102,7 +102,7 @@ export const Home = () => {
       <div className="home__shoes">
         {filteredShoes.map((item) => (
           <div key={item.id} className="home__shoes__item">
-            <div>
+            <div className='home__img__block'>
               <img src={item.grid_picture_url} alt="" />
             </div>
             <div>{item.brand_name}</div>
