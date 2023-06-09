@@ -1,4 +1,4 @@
-import './reset.css'
+import './reset.css';
 import './App.scss';
 import { Home } from './components/Home/Home';
 import { Like } from './components/Like/Like';
@@ -8,12 +8,10 @@ import { Header } from './components/Header/Header';
 import { Account } from './components/Account/Account';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-
 function App() {
-
-  return (    
-    <div className='body'>  
-     <Header />
+  return (
+    <div className='body'>
+      <Header className="header" />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/like" element={<Like />} />

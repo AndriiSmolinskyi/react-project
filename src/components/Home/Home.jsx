@@ -3,6 +3,10 @@ import axios from 'axios';
 import { SearchBar } from './SearchBar/SearchBar';
 import { SortingButtons } from './SortingButtons/SortingButtons';
 import './Home.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+library.add(faMagnifyingGlass);
 
 export const Home = () => {
   const [shoesData, setShoesData] = useState([]);
@@ -83,7 +87,10 @@ export const Home = () => {
   return (
     <div className="home">
       <div className="home__nav">
-         <SearchBar onSearch={handleSearch} className="input__search"/>
+        <div className='input__box'>
+          <SearchBar onSearch={handleSearch} className="input__search"/>
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
+        </div>        
          <SortingButtons
          selectedSize={selectedSize}
          setSelectedSize={setSelectedSize}

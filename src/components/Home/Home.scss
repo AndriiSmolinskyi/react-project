@@ -7,14 +7,17 @@
    .home__shoes{
       display: flex;
       flex-wrap: wrap;
-      
+      justify-content: space-between;
       .home__shoes__item{
-         width: 25%;
+         width: 24%;
          @media (max-width: 569px) {
-            width: 50%;
+            width: 49%;
           }
       }
-      
+      .home__img__block{
+         background-color: white;
+         border-radius: 10px;
+      }
    }
    .home__btn{
       display: flex;
@@ -35,6 +38,13 @@
    .home__nav{
       display: flex;
       justify-content: space-between;
+      @media (max-width: 569px){
+         display: block;
+      }
+   }
+   .input__box{
+      display: flex;
+      width: 100%;
    }
 }
 
