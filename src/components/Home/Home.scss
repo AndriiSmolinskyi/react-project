@@ -1,6 +1,9 @@
 .home{
    max-width: 1170px;
    margin: 0 auto;
+   @media (max-width: 569px) {
+      padding: 0px 10px 0px 10px;
+   }
    .home__shoes{
       display: flex;
       flex-wrap: wrap;
