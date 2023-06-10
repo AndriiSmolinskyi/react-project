@@ -12,25 +12,25 @@ export const Header = () => {
       <nav className="header__nav">
         <ul className="header__nav__ul">
           <li className="nav__item">
-            <NavLink exact to="/" className="nav__link" activeсlassName="active">
+            <NavLink exact={true.toString()} to="/" className="nav__link"  >
               <span className="nav__link__text">Home</span>
               <FontAwesomeIcon icon={faHouse} />
             </NavLink>
           </li>
           <li className="nav__item">
-            <NavLink to="/like" className="nav__link" activeсlassName="active">
+            <NavLink to="/like" className="nav__link"  >
               <span className="nav__link__text">Like</span>
               <FontAwesomeIcon icon={faHeart} />
             </NavLink>
           </li>
           <li className="nav__item">
-            <NavLink to="/notif" className="nav__link" activeсlassName="active">
+            <NavLink to="/notif" className="nav__link"  >
               <span className="nav__link__text">Notifications</span>
               <FontAwesomeIcon icon={faBell} />
             </NavLink>
           </li>
           <li className="nav__item">
-            <NavLink to="/cart" className="nav__link" activeсlassName="active">
+            <NavLink to="/cart" className="nav__link">
               <span className="nav__link__text">Cart</span>
               <FontAwesomeIcon icon={faCartShopping} />
             </NavLink>

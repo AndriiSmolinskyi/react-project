@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { SearchBar } from './SearchBar/SearchBar';
-import { SortingButtons } from './SortingButtons/SortingButtons';
 import './Home.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -12,58 +11,16 @@ export const Home = () => {
   const [shoesData, setShoesData] = useState([]);
   const [filteredShoes, setFilteredShoes] = useState([]);
   const [visibleItems, setVisibleItems] = useState(12);
-  const [sortType, setSortType] = useState('');
-  const [selectedSize, setSelectedSize] = useState('');
-  const [selectedGender, setSelectedGender] = useState('');
-  const [selectedColor, setSelectedColor] = useState('');
-  const [uniqueColors, setUniqueColors] = useState([]);
-  const [uniqueSizes, setUniqueSizes] = useState([]);
-
+ 
   const itemsPerLoad = 20;
-
-  const filterShoes = () => {
-    let filteredData = [...shoesData];
-
-    if (selectedSize) {
-      filteredData = filteredData.filter((item) => item.size_range.includes(parseFloat(selectedSize)));
-    }
-
-    if (selectedGender) {
-      filteredData = filteredData.filter((item) => item.gender.includes(selectedGender));
-    }
-
-    if (selectedColor) {
-      filteredData = filteredData.filter((item) => item.color === selectedColor);
-    }
-
-    if (sortType === 'newest') {
-      filteredData.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
-    } else if (sortType === 'lowestPrice') {
-      filteredData.sort((a, b) => a.retail_price_cents - b.retail_price_cents);
-    } else if (sortType === 'highestPrice') {
-      filteredData.sort((a, b) => b.retail_price_cents - a.retail_price_cents);
-    } else if (sortType === 'size') {
-      filteredData.sort((a, b) => a.size_range[0] - b.size_range[0]);
-    }
-
-    setFilteredShoes(filteredData.slice(0, visibleItems));
-  };
 
   useEffect(() => {
     axios.get('./json/api.json').then((res) => {
       const { sneakers } = res.data;
       setShoesData(sneakers);
       setFilteredShoes(sneakers.slice(0, visibleItems));
-      const colors = [...new Set(sneakers.map((item) => item.color))];
-      const sizes = [...new Set(sneakers.flatMap((item) => item.size_range))];
-      setUniqueColors(colors);
-      setUniqueSizes(sizes);
     });
   }, [visibleItems]);
-
-  useEffect(() => {
-    filterShoes();
-  }, [sortType, selectedSize, selectedGender, selectedColor]);
 
   const handleSearch = (query) => {
     const searchQueries = query.toLowerCase().split(' ');
@@ -92,19 +49,6 @@ export const Home = () => {
           <SearchBar onSearch={handleSearch} className="input__search"/>         
           <div className='input__icon-block'><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
         </div>        
-         <SortingButtons
-         selectedSize={selectedSize}
-         setSelectedSize={setSelectedSize}
-         selectedGender={selectedGender}
-         setSelectedGender={setSelectedGender}
-         selectedColor={selectedColor}
-         setSelectedColor={setSelectedColor}
-         sortType={sortType}
-         setSortType={setSortType}
-         uniqueSizes={uniqueSizes}
-         uniqueColors={uniqueColors}
-         
-         />
       </div>
       
       <div className="home__shoes">
@@ -128,6 +72,3 @@ export const Home = () => {
     </div>
   );
 };
-
-
-
