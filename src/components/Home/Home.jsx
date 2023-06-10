@@ -86,10 +86,11 @@ export const Home = () => {
 
   return (
     <div className="home">
+      <h1 className='home__title'>Hype Sneakers</h1>
       <div className="home__nav">
         <div className='input__box'>
-          <SearchBar onSearch={handleSearch} className="input__search"/>
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
+          <SearchBar onSearch={handleSearch} className="input__search"/>         
+          <div className='input__icon-block'><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
         </div>        
          <SortingButtons
          selectedSize={selectedSize}
@@ -112,7 +113,6 @@ export const Home = () => {
             <div className='home__img__block'>
               <img src={item.grid_picture_url} alt="" />
             </div>
-            <div>{item.brand_name}</div>
             <div>{item.name}</div>
             <div>price: {item.retail_price_cents / 100}$</div>
           </div>
@@ -128,3 +128,6 @@ export const Home = () => {
     </div>
   );
 };
+
+
+

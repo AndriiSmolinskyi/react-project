@@ -13,7 +13,7 @@ function App() {
     <div className='body'>
       <Header className="header" />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />}/>
         <Route path="/like" element={<Like />} />
         <Route path="/notif" element={<Notif />} />
         <Route path="/cart" element={<Cart />} />

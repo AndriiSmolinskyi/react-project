@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './SearchBar.scss'
 
 export const SearchBar = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -17,6 +18,7 @@ export const SearchBar = ({ onSearch }) => {
       value={searchQuery}
       onChange={handleInputChange}
       placeholder="Search Shoes"
+      className='input-search'
     />
   );
 };
