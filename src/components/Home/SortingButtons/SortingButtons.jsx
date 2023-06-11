@@ -1,7 +1,7 @@
 import React from 'react';
 import './SortingButtons.scss';
 
-export const SortingButtons = ({ handleSort, handleFilter }) => {
+export const SortingButtons = ({ handleSort, handleFilter, handleReset }) => {
   const handleSortAsc = () => {
     handleSort('asc');
   };
@@ -18,6 +18,10 @@ export const SortingButtons = ({ handleSort, handleFilter }) => {
     handleFilter('women');
   };
 
+  const handleResetFilters = () =>{
+    handleReset();
+  }
+
 
   return (
     <div className="sorting-buttons">
@@ -25,6 +29,7 @@ export const SortingButtons = ({ handleSort, handleFilter }) => {
       <button onClick={handleSortDesc}>Highest price</button>
       <button onClick={handleFilterMen}>Men</button>
       <button onClick={handleFilterWomen}>Women</button>
+      <button onClick={handleResetFilters}>Reset</button>
     </div>
   );
 };

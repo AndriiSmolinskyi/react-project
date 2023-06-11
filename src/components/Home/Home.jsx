@@ -36,10 +36,16 @@ export const Home = () => {
     const filteredShoesData = shoesData.filter(item => item.gender.includes(gender));
     setDisplayedShoesData(filteredShoesData);
   };
+
+  const handleReset = () =>{
+    setDisplayedShoesData(shoesData);
+  }
+  
+
   
   return (
     <div className="home">
-      <SortingButtons handleSort={handleSort} handleFilter={handleFilter}/>
+      <SortingButtons handleSort={handleSort} handleFilter={handleFilter} handleReset={handleReset} />
       <div className="shoes-block">
         {displayedShoesData.map(item => (
           <Shoes key={item.id} imgUrl={item.main_picture_url} price={item.retail_price_cents} name={item.name}/>
