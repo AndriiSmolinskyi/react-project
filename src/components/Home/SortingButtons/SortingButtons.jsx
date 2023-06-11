@@ -1,24 +1,30 @@
 import React from 'react';
+import './SortingButtons.scss';
 
-export const SortingButtons = ({ handleFilter }) => {
+export const SortingButtons = ({ handleSort, handleFilter }) => {
+  const handleSortAsc = () => {
+    handleSort('asc');
+  };
+
+  const handleSortDesc = () => {
+    handleSort('desc');
+  };
+
+  const handleFilterMen = () => {
+    handleFilter('men');
+  };
+
+  const handleFilterWomen = () => {
+    handleFilter('women');
+  };
+
+
   return (
-    <div className="filter__box">
-      <button className="filter__button" onClick={() => handleFilter('lowest')}>
-        Lowest Price
-      </button>
-      <button className="filter__button" onClick={() => handleFilter('highest')}>
-        Highest Price
-      </button>
-      <button className="filter__button" onClick={() => handleFilter('newest')}>
-        Newest Deals
-      </button>
-      <button className="filter__button" onClick={() => handleFilter('men')}>
-        Men
-      </button>
-      <button className="filter__button" onClick={() => handleFilter('women')}>
-        Women
-      </button>
+    <div className="sorting-buttons">
+      <button onClick={handleSortAsc}>Lowest price</button>
+      <button onClick={handleSortDesc}>Highest price</button>
+      <button onClick={handleFilterMen}>Men</button>
+      <button onClick={handleFilterWomen}>Women</button>
     </div>
   );
 };
-

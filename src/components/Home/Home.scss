@@ -11,21 +11,7 @@
    @media (max-width: 569px) {
       padding: 10px 10px 80px 10px;
    }
-   .home__shoes{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      .home__shoes__item{
-         width: 24%;
-         @media (max-width: 569px) {
-            width: 49%;
-          }
-      }
-      .home__img__block{
-         background-color: rgb(253, 250, 250);
-         border-radius: 10px;
-      }
-   }
+  
    .home__btn{
       display: flex;
       justify-content: center;
@@ -63,6 +49,13 @@
       }
    }
 
+   .shoes-block{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+   }
+
 }
+
 
 
