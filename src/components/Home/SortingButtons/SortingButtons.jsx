@@ -33,4 +33,3 @@ export const SortingButtons = ({ handleSort, handleFilter, handleReset }) => {
     </div>
   );
 };
-
