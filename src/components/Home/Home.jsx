@@ -5,9 +5,10 @@ import { SortingButtons } from './SortingButtons/SortingButtons';
 import './Home.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Shoes } from './Shoes/Shoes';
-library.add(faMagnifyingGlass);
+import { NavLink } from 'react-router-dom';
+library.add(faMagnifyingGlass, faUser);
 
 export const Home = () => {
   const [shoesData, setShoesData] = useState([]);
@@ -38,22 +39,48 @@ export const Home = () => {
   };
 
 
-  const handleReset = () =>{
-    setDisplayedShoesData(shoesData);
-  }
+  // const handleReset = () =>{
+  //   setDisplayedShoesData(shoesData);
+  // }
+
+  const handleSearch = (query) => {
+    const searchQueries = query.toLowerCase().split(' ');
+
+    const filteredData = shoesData.filter((item) => {
+      const itemName = item.name.toLowerCase();
+      const itemBrand = item.brand_name.toLowerCase();
+
+      return searchQueries.every((searchQuery) =>
+        itemName.includes(searchQuery) || itemBrand.includes(searchQuery)
+      );
+    });
+
+    setDisplayedShoesData(filteredData);
+  };
   
-    
+  
   return (
     <div className="home">
-      <h1 className='home__title'>Hype Sneakers</h1>
-      <SortingButtons handleSort={handleSort} handleFilter={handleFilter} handleReset={handleReset} />
+      <div className="home__up">
+        <h1 className='home__title'>Hype Sneakers</h1>
+        <NavLink to="/account" className="home__link">
+          <FontAwesomeIcon icon={faUser} />
+        </NavLink>
+      </div>
+      
+      <div className="home__nav">
+        <div className='input__box'>
+          <SearchBar onSearch={handleSearch} className="input__search"/>         
+          <div className='input__icon-block'><FontAwesomeIcon icon={faMagnifyingGlass} /></div>         
+        </div> 
+        <SortingButtons handleSort={handleSort} handleFilter={handleFilter}  />   
+      </div>
+      {/* handleReset={handleReset} */}
       <div className="shoes-block">
         {displayedShoesData.map(item => (
           <Shoes key={item.id} imgUrl={item.main_picture_url} price={item.retail_price_cents} name={item.name}/>
         ))}
       </div>
-      
-
     </div>
   );
 };
