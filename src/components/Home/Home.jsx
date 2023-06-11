@@ -37,20 +37,26 @@ export const Home = () => {
     setDisplayedShoesData(filteredShoesData);
   };
 
+
   const handleReset = () =>{
     setDisplayedShoesData(shoesData);
   }
   
-
-  
+    
   return (
     <div className="home">
+      <h1 className='home__title'>Hype Sneakers</h1>
       <SortingButtons handleSort={handleSort} handleFilter={handleFilter} handleReset={handleReset} />
       <div className="shoes-block">
         {displayedShoesData.map(item => (
           <Shoes key={item.id} imgUrl={item.main_picture_url} price={item.retail_price_cents} name={item.name}/>
         ))}
-      </div> 
+      </div>
+      
+
     </div>
   );
 };
+
+
+

@@ -29,7 +29,8 @@ export const SortingButtons = ({ handleSort, handleFilter, handleReset }) => {
       <button onClick={handleSortDesc}>Highest price</button>
       <button onClick={handleFilterMen}>Men</button>
       <button onClick={handleFilterWomen}>Women</button>
-      <button onClick={handleResetFilters}>Reset</button>
+      <button onClick={handleResetFilters}>Reset</button>      
     </div>
   );
 };
+
