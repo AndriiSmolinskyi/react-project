@@ -18,7 +18,7 @@ export const Form = (title, handleClick) =>{
             onChange={(e) => setPass(e.target.value)}
             placeholder="password"
          />
-         <button onClick={handleClick}>
+         <button onClick={() => handleClick(email,pass)}>
             {title}
          </button>
       </div>

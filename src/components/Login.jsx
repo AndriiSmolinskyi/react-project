@@ -8,11 +8,14 @@ export const Login = () =>{
 
    const handleLogin = (email, password) =>{
       const auth = getAuth();
-      signInWithEmailAndPassword(auth);
+      signInWithEmailAndPassword(auth, email, password)
+         .then(console.log)
+         .catch(console.error)
    }
    return(
-      <div>
-
-      </div>
+      <Form
+         title="sign in"
+         handleClick={handleLogin}
+      />
    )
 }
