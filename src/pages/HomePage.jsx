@@ -32,10 +32,10 @@ export const HomePage = () => {
    const dispatch = useDispatch();
    const navigate = useNavigate();
 
-   if (!isAuth) {
-      navigate("/login"); // Переадресація на сторінку login, якщо не авторизовано
-      return null;
-   }
+   // if (!isAuth) {
+   //    navigate("/login"); // Переадресація на сторінку login, якщо не авторизовано
+   //    return null;
+   // }
 
    return (
       <div>
