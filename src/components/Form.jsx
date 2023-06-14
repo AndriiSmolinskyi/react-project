@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Form = (title, handleClick) =>{
+export const Form = ({title, handleClick}) =>{
    const [email, setEmail] = useState('');
    const [pass, setPass] = useState('');
 
