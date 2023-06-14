@@ -48,20 +48,3 @@ export const HomePage = () => {
    );
 };
 
-export const LoginPage = () => {
-   const { isAuth } = useAuth();
-   const navigate = useNavigate();
-
-   if (isAuth) {
-      navigate("/"); // Переадресація на сторінку HomePage, якщо авторизовано
-      return null;
-   }
-
-   // Рендер компонента LoginPage
-   return (
-      <div>
-         <h1>Login Page</h1>
-         {/* Решта коду для форми входу */}
-      </div>
-   );
-};
