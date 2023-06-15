@@ -8,12 +8,13 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Shoes } from './Shoes/Shoes';
 import { NavLink } from 'react-router-dom';
-import { ShoesFull } from "../ShoesFull/ShoesFull";
+import { useNavigate } from "react-router-dom";
 library.add(faMagnifyingGlass, faUser);
 
 export const Home = () => {
   const [shoesData, setShoesData] = useState([]);
   const [displayedShoesData, setDisplayedShoesData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios('/json/api.json').then(res => {
@@ -59,7 +60,9 @@ export const Home = () => {
     setDisplayedShoesData(filteredData);
   };
 
-  
+  function clickFull(id){
+    navigate(`/shoesfull/${id}`);
+  }
   
   return (
     <div className="home">
@@ -80,7 +83,9 @@ export const Home = () => {
       {/* handleReset={handleReset} */}
       <div className="shoes-block">
         {displayedShoesData.map(item => (
-            <Shoes key={item.id} imgUrl={item.main_picture_url} price={item.retail_price_cents} name={item.name}/>      
+            <span key={item.id} onClick={() => clickFull(item.id)} className='shoes-block__item'>
+              <Shoes key={item.id} imgUrl={item.main_picture_url} price={item.retail_price_cents} name={item.name}/>  
+            </span>               
         ))}
       </div>
     </div>

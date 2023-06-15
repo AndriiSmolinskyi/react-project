@@ -75,11 +75,18 @@
       }
    }
 
-   .shoes-block{
+   .shoes-block{     
+      margin-top: 30px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      margin-top: 30px;
+      .shoes-block__item{
+         width: auto;
+         width: 24%;
+         @media (max-width: 569px) {
+            width: 49%;
+            }
+      }
    }
 
 }

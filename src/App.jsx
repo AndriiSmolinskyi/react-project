@@ -9,6 +9,7 @@ import { Account } from './components/Account/Account';
 import { Routes, Route } from 'react-router-dom';
 import { LoginPage } from './components/LoginPage/LoginPage';
 import { RegisterPage } from './components/RegisterPage/RegisterPage';
+import { ShoesFull } from 'components/ShoesFull/ShoesFull';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/register" element={<RegisterPage/>}/>
+        <Route path="/shoesfull/:id" element={<ShoesFull/>}/>
       </Routes>
     </div>
   );
