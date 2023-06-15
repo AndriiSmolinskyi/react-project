@@ -8,6 +8,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Shoes } from './Shoes/Shoes';
 import { NavLink } from 'react-router-dom';
+import { ShoesFull } from "../ShoesFull/ShoesFull";
 library.add(faMagnifyingGlass, faUser);
 
 export const Home = () => {
@@ -57,6 +58,7 @@ export const Home = () => {
 
     setDisplayedShoesData(filteredData);
   };
+
   
   
   return (
@@ -78,9 +80,11 @@ export const Home = () => {
       {/* handleReset={handleReset} */}
       <div className="shoes-block">
         {displayedShoesData.map(item => (
-          <Shoes key={item.id} imgUrl={item.main_picture_url} price={item.retail_price_cents} name={item.name}/>
+            <Shoes key={item.id} imgUrl={item.main_picture_url} price={item.retail_price_cents} name={item.name}/>      
         ))}
       </div>
     </div>
   );
 };
+
+

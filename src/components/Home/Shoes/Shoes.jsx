@@ -10,9 +10,3 @@ export const Shoes = ({ imgUrl, price, name }) => {
   );
 };
 
-
-
-
-
-
-
