@@ -7,6 +7,8 @@ import { Cart } from './components/Cart/Cart';
 import { Header } from './components/Header/Header';
 import { Account } from './components/Account/Account';
 import { Routes, Route } from 'react-router-dom';
+import { LoginPage } from './components/LoginPage/LoginPage';
+import { RegisterPage } from './components/RegisterPage/RegisterPage';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/notif" element={<Notif />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/register" element={<RegisterPage/>}/>
       </Routes>
     </div>
   );
