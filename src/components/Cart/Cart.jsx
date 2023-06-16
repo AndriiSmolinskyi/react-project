@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useAuth } from 'hooks/use-auth';
 import { useNavigate } from 'react-router-dom';
@@ -96,17 +97,17 @@ export const Cart = () => {
         <div>
           <ul>
             {cartItems.map(item => (
-                <CartItem
-                  key={`${item.itemId}_${item.size}`}
-                  item={item}
-                  handleDecrement={handleDecrement}
-                  handleIncrement={handleIncrement}
-                  handleRemoveItem={handleRemoveItem}
-                />  
+              <CartItem
+                key={`${item.id}_${item.size}`}
+                item={item}
+                handleDecrement={handleDecrement}
+                handleIncrement={handleIncrement}
+                handleRemoveItem={handleRemoveItem}
+              />
             ))}
           </ul>
           <div>
-            <h3>Total Price: {getTotalPrice()/100}</h3>
+            <h3>Total Price: {getTotalPrice() / 100}</h3>
             <button onClick={handleBuy}>Buy</button>
           </div>
           {showDelivery && <Delivery handleSubmit={handleDeliverySubmit} />}
@@ -116,4 +117,4 @@ export const Cart = () => {
       )}
     </div>
   );
-};
+}

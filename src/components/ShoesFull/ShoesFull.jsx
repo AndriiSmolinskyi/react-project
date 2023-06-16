@@ -36,17 +36,18 @@ export const ShoesFull = () => {
 
     const userId = localStorage.getItem('userId');
     const cartItem = {
-      id: shoe.id,
+      itemId: shoe.id, // замість "id"
       name: shoe.name,
       price: shoe.retail_price_cents,
       size: selectedSize,
       quantity: 1,
-      picture: shoe.main_picture_ur,
+      picture: shoe.main_picture_url, // замість "main_picture_ur"
     };
 
     let userCart = JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
     const existingItemIndex = userCart.findIndex(
-      item => item.id === cartItem.id && item.size === cartItem.size
+      item => item.itemId === cartItem.itemId && item.size === cartItem.size // замість "id"
+
     );
 
     if (existingItemIndex !== -1) {
@@ -63,20 +64,20 @@ export const ShoesFull = () => {
   const handleToggleLike = () => {
     const userId = localStorage.getItem('userId');
     const likedItem = {
-      id: shoe.id,
+      id: shoe.id, // замість "itemId"
       name: shoe.name,
       price: shoe.retail_price_cents,
-      picture: shoe.main_picture_url, // Додайте поле з URL-адресою картинки
+      picture: shoe.main_picture_url, // замість "main_picture_ur"
     };
   
     const userLikes = JSON.parse(localStorage.getItem(`likes_${userId}`)) || [];
-    const isLiked = userLikes.some(item => item.id === shoe.id);
+    const isLiked = userLikes.some(item => item.id === shoe.id); // замість "itemId"
   
     if (isLiked) {
-      const updatedLikes = userLikes.filter(item => item.id !== shoe.id);
+      const updatedLikes = userLikes.filter(item => item.id !== shoe.id); // замість "itemId"
       localStorage.setItem(`likes_${userId}`, JSON.stringify(updatedLikes));
       setLiked(false);
-      console.log('Item removed from likes:', shoe.id);
+      console.log('Item removed from likes:', shoe.id); // замість "itemId"
     } else {
       userLikes.push(likedItem);
       localStorage.setItem(`likes_${userId}`, JSON.stringify(userLikes));
