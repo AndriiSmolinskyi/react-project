@@ -44,6 +44,7 @@ export const Like = () => {
             <li key={item.id}>
               <p>Name: {item.name}</p>
               <p>Price: {item.price}</p>
+              <div><img src={item.original_picture_url} alt="" /></div>
               <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
             </li>
           ))}
