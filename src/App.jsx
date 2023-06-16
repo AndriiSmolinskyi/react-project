@@ -15,16 +15,18 @@ function App() {
   return (
     <div className='body'>
       <Header className="header" />
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/like" element={<Like />} />
-        <Route path="/notif" element={<Notif />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/login" element={<LoginPage/>}/>
-        <Route path="/register" element={<RegisterPage/>}/>
-        <Route path="/shoesfull/:id" element={<ShoesFull/>}/>
-      </Routes>
+      <div className="wrapper">
+        <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path="/like" element={<Like />} />
+            <Route path="/notif" element={<Notif />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/login" element={<LoginPage/>}/>
+            <Route path="/register" element={<RegisterPage/>}/>
+            <Route path="/shoesfull/:id" element={<ShoesFull/>}/>    
+        </Routes>
+      </div>
     </div>
   );
 }

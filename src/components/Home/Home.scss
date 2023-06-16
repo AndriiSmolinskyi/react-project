@@ -3,6 +3,7 @@
    margin: 0 auto;
    background-color: #f7f3f3;
    height: 100%;
+   
    .home__up{
 
       @media (max-width: 569px){
@@ -34,9 +35,7 @@
       }
    }
   
-   @media (max-width: 569px) {
-      padding: 20px 10px 80px 10px;
-   }
+   
 
    .home__btn{
       display: flex;
