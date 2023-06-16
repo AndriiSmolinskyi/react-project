@@ -20,6 +20,7 @@ export const Login = () =>{
                   token: user.accessToken,
                })
             );
+            localStorage.setItem('userId', user.uid);
             navigate("/account"); 
          })
          .catch(() => alert('Invalid user'))
