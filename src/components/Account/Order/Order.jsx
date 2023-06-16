@@ -64,7 +64,6 @@ export const Order = () => {
             {orderItems.map(item => (
               <li key={`${item.id}_${item.size}`}>
                <img src={item.picture} alt="" />
-               {console.log(item.picture)}
                {item.name} - Quantity: {item.quantity} - Price: {item.price/100}
               </li>
             ))}
