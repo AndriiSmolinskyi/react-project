@@ -6,7 +6,7 @@ export const Like = () => {
   const [likedItems, setLikedItems] = useState([]);
   const { isAuth } = useAuth();
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     const userId = localStorage.getItem('userId');
     const userLikes = JSON.parse(localStorage.getItem(`likes_${userId}`)) || [];
@@ -50,7 +50,7 @@ export const Like = () => {
               <span key={item.id} onClick={() => clickFull(item.id)}>
                 <p>Name: {item.name}</p>
                 <p>Price: {item.price}</p>
-                <div><img src={item.original_picture_url} alt="" /></div>
+                <div><img src={item.picture} alt="" /></div>
               </span>
               <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
             </li>
@@ -62,3 +62,5 @@ export const Like = () => {
     </div>
   );
 };
+
+

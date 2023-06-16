@@ -1,14 +1,15 @@
-
 import React, { useState, useEffect } from 'react';
 import { useAuth } from 'hooks/use-auth';
 import { useNavigate } from 'react-router-dom';
 import { CartItem } from './CartItem/CartItem';
 import './Cart.scss';
+import { Delivery } from './Delivery/Delivery';
 
 export const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const { isAuth } = useAuth();
   const navigate = useNavigate();
+  const [showDelivery, setShowDelivery] = useState(false);
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
@@ -17,7 +18,9 @@ export const Cart = () => {
   }, []);
 
   const handleRemoveItem = (itemId, size) => {
-    const updatedCart = cartItems.filter(item => item.itemId !== itemId || item.size !== size);
+    const updatedCart = cartItems.filter(
+      item => item.itemId !== itemId || item.size !== size
+    );
     setCartItems(updatedCart);
     const userId = localStorage.getItem('userId');
     localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
@@ -49,11 +52,31 @@ export const Cart = () => {
   };
 
   const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + Number(item.price) * item.quantity, 0);
+    return cartItems.reduce(
+      (total, item) => total + Number(item.price) * item.quantity,
+      0
+    );
   };
 
   const clickLogin = () => {
     navigate('/login');
+  };
+
+  const handleBuy = () => {
+    setShowDelivery(true);
+  };
+
+  const handleDeliverySubmit = deliveryData => {
+    const order = {
+      items: cartItems,
+      source: 'Варшава',
+      destination: `${deliveryData.country}, ${deliveryData.city}, ${deliveryData.street}`,
+    };
+    console.log('Order:', order);
+    // Очистити корзину після оформлення замовлення
+    setCartItems([]);
+    const userId = localStorage.getItem('userId');
+    localStorage.setItem(`cart_${userId}`, JSON.stringify([]));
   };
 
   if (!isAuth) {
@@ -73,19 +96,23 @@ export const Cart = () => {
         <div>
           <ul>
             {cartItems.map(item => (
-              <CartItem
-                key={`${item.itemId}_${item.size}`}
-                item={item}
-                handleDecrement={handleDecrement}
-                handleIncrement={handleIncrement}
-                handleRemoveItem={handleRemoveItem}
-              />
+                <CartItem
+                  key={`${item.itemId}_${item.size}`}
+                  item={item}
+                  handleDecrement={handleDecrement}
+                  handleIncrement={handleIncrement}
+                  handleRemoveItem={handleRemoveItem}
+                />  
             ))}
           </ul>
-          <p>Total Price: {getTotalPrice() / 100}</p>
+          <div>
+            <h3>Total Price: {getTotalPrice()/100}</h3>
+            <button onClick={handleBuy}>Buy</button>
+          </div>
+          {showDelivery && <Delivery handleSubmit={handleDeliverySubmit} />}
         </div>
       ) : (
-        <p>Your cart is empty</p>
+        <p>Your cart is empty.</p>
       )}
     </div>
   );

@@ -41,6 +41,7 @@ export const ShoesFull = () => {
       price: shoe.retail_price_cents,
       size: selectedSize,
       quantity: 1,
+      picture: shoe.main_picture_ur,
     };
 
     let userCart = JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
@@ -65,11 +66,12 @@ export const ShoesFull = () => {
       id: shoe.id,
       name: shoe.name,
       price: shoe.retail_price_cents,
+      picture: shoe.main_picture_url, // Додайте поле з URL-адресою картинки
     };
-
+  
     const userLikes = JSON.parse(localStorage.getItem(`likes_${userId}`)) || [];
     const isLiked = userLikes.some(item => item.id === shoe.id);
-
+  
     if (isLiked) {
       const updatedLikes = userLikes.filter(item => item.id !== shoe.id);
       localStorage.setItem(`likes_${userId}`, JSON.stringify(updatedLikes));
