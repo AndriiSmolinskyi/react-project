@@ -20,6 +20,7 @@ export const SignUp = () => {
                   token: user.accessToken,
                })
             );
+            localStorage.setItem('userId', user.uid);
             navigate("/account"); 
          })
          .catch(console.error);
@@ -31,3 +32,6 @@ export const SignUp = () => {
       </div>
    );
 };
+
+
+
