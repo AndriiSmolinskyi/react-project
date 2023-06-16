@@ -49,7 +49,7 @@ export const Like = () => {
             <li key={item.id}>
               <span key={item.id} onClick={() => clickFull(item.id)}>
                 <p>Name: {item.name}</p>
-                <p>Price: {item.price}</p>
+                <p>Price: {item.price/100}</p>
                 <div><img src={item.picture} alt="" /></div>
               </span>
               <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
