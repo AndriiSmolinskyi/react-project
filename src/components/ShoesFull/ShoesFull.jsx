@@ -21,20 +21,35 @@ export const ShoesFull = () => {
     setLiked(userLikes.some(item => item.id === shoe?.id));
   }, [shoe]);
 
+  
+
   const handleAddToCart = () => {
     const userId = localStorage.getItem('userId');
     const cartItem = {
       id: shoe.id,
       name: shoe.name,
       price: shoe.retail_price_cents,
+      quantity: 1, // Початкова кількість айтема
     };
-
-    const userCart = JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
-    userCart.push(cartItem);
+  
+    let userCart = JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
+    const existingItemIndex = userCart.findIndex(item => item.id === cartItem.id);
+  
+    if (existingItemIndex !== -1) {
+      // Якщо айтем вже є у корзині, оновлюємо його кількість
+      userCart[existingItemIndex].quantity++;
+    } else {
+      // Якщо айтем ще не мається у корзині, додаємо його
+      userCart.push(cartItem);
+    }
+  
     localStorage.setItem(`cart_${userId}`, JSON.stringify(userCart));
-
+  
     console.log('Item added to cart:', cartItem);
   };
+
+
+
 
   const handleToggleLike = () => {
     const userId = localStorage.getItem('userId');
