@@ -2,7 +2,7 @@ export const Order = () => {
    const order = localStorage.getItem('order');
    const orderItems = (order && JSON.parse(order).items) || [];
    const source = (order && JSON.parse(order).source) || 'Warsaw';
-   const destination = (order && JSON.parse(order).destination) || 'Місто, Вулиця';
+   const destination = (order && JSON.parse(order).destination) || 'City, Street';
  
    const totalPrice = orderItems.reduce(
      (total, item) => total + Number(item.price) * item.quantity,
