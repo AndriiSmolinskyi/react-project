@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useAuth } from "hooks/use-auth";
-import { useNavigate } from "react-router-dom";
+
+import React, { useState, useEffect } from 'react';
+import { useAuth } from 'hooks/use-auth';
+import { useNavigate } from 'react-router-dom';
+import { CartItem } from './CartItem/CartItem';
+import './Cart.scss';
 
 export const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -8,52 +11,49 @@ export const Cart = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem('userId');
     const userCart = JSON.parse(localStorage.getItem(`cart_${userId}`)) || [];
     setCartItems(userCart);
   }, []);
 
-  const handleRemoveItem = (itemId) => {
-    const updatedCart = cartItems.filter((item) => item.id !== itemId);
+  const handleRemoveItem = (itemId, size) => {
+    const updatedCart = cartItems.filter(item => item.itemId !== itemId || item.size !== size);
     setCartItems(updatedCart);
-    const userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem('userId');
     localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
-    console.log("Item removed from cart:", itemId);
+    console.log('Item removed from cart:', itemId);
   };
 
-  function clickLogin() {
-    navigate("/login");
-  }
-
-  const handleIncrement = (itemId) => {
-    const updatedCart = cartItems.map((item) => {
-      if (item.id === itemId) {
+  const handleIncrement = (itemId, size) => {
+    const updatedCart = cartItems.map(item => {
+      if (item.itemId === itemId && item.size === size) {
         return { ...item, quantity: item.quantity + 1 };
       }
       return item;
     });
     setCartItems(updatedCart);
-    const userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem('userId');
     localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
   };
 
-  const handleDecrement = (itemId) => {
-    const updatedCart = cartItems.map((item) => {
-      if (item.id === itemId && item.quantity > 1) {
+  const handleDecrement = (itemId, size) => {
+    const updatedCart = cartItems.map(item => {
+      if (item.itemId === itemId && item.size === size && item.quantity > 1) {
         return { ...item, quantity: item.quantity - 1 };
       }
       return item;
     });
     setCartItems(updatedCart);
-    const userId = localStorage.getItem("userId");
+    const userId = localStorage.getItem('userId');
     localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
   };
 
   const getTotalPrice = () => {
-    return cartItems.reduce(
-      (total, item) => total + Number(item.price) * item.quantity,
-      0
-    );
+    return cartItems.reduce((total, item) => total + Number(item.price) * item.quantity, 0);
+  };
+
+  const clickLogin = () => {
+    navigate('/login');
   };
 
   if (!isAuth) {
@@ -61,7 +61,7 @@ export const Cart = () => {
       <div>
         <h1>Cart</h1>
         <p>Please log in to view your cart items.</p>
-        <button onClick={() => clickLogin()}>Log In</button>
+        <button onClick={clickLogin}>Log In</button>
       </div>
     );
   }
@@ -72,18 +72,17 @@ export const Cart = () => {
       {cartItems.length > 0 ? (
         <div>
           <ul>
-            {cartItems.map((item) => (
-              <li key={item.id}>
-                <p>Name: {item.name}</p>
-                <p>Price: {(item.price * item.quantity) / 100}</p>
-                <p>Quantity: {item.quantity}</p>
-                <button onClick={() => handleDecrement(item.id)}>-</button>
-                <button onClick={() => handleIncrement(item.id)}>+</button>
-                <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
-              </li>
+            {cartItems.map(item => (
+              <CartItem
+                key={`${item.itemId}_${item.size}`}
+                item={item}
+                handleDecrement={handleDecrement}
+                handleIncrement={handleIncrement}
+                handleRemoveItem={handleRemoveItem}
+              />
             ))}
           </ul>
-          <p>Total Price: {getTotalPrice()/100}</p>
+          <p>Total Price: {getTotalPrice() / 100}</p>
         </div>
       ) : (
         <p>Your cart is empty</p>

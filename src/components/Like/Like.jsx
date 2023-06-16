@@ -21,9 +21,13 @@ export const Like = () => {
     console.log('Item removed from likes:', itemId);
   };
 
-   function clickLogin(){
+  function clickLogin(){
       navigate("/login");
    }
+   
+  function clickFull(id){
+    navigate(`/shoesfull/${id}`);
+  }
 
    if (!isAuth) {
       return (
@@ -35,6 +39,7 @@ export const Like = () => {
       );
    }
 
+
   return (
     <div>
       <h1>Likes</h1>
@@ -42,9 +47,11 @@ export const Like = () => {
         <ul>
           {likedItems.map(item => (
             <li key={item.id}>
-              <p>Name: {item.name}</p>
-              <p>Price: {item.price}</p>
-              <div><img src={item.original_picture_url} alt="" /></div>
+              <span key={item.id} onClick={() => clickFull(item.id)}>
+                <p>Name: {item.name}</p>
+                <p>Price: {item.price}</p>
+                <div><img src={item.original_picture_url} alt="" /></div>
+              </span>
               <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
             </li>
           ))}
