@@ -1,31 +1,32 @@
-.home{
+.home {
    max-width: 1170px;
    margin: 0 auto;
    background-color: #f7f3f3;
    height: 100%;
-   
-   .home__up{
+
+   .home__up {
       position: relative;
       display: flex;
       justify-content: center;
       padding-right: 24px;
       padding-left: 24px;
       margin-top: 10px;
-      
 
-      @media (max-width: 768px) and (min-width: 570px){        
+
+      @media (max-width: 768px) and (min-width: 570px) {
          padding-left: 15px;
          padding-right: 15px;
       }
 
-      @media (max-width: 569px){
+      @media (max-width: 569px) {
          display: flex;
          position: relative;
          align-items: center;
          justify-content: center;
          position: relative;
       }
-      .home__link{
+
+      .home__link {
          position: absolute;
          right: 0;
          color: #EB3C3C;
@@ -38,28 +39,32 @@
          justify-content: center;
          align-items: center;
       }
-      .home__title{
+
+      .home__title {
          text-align: center;
          color: #EB3C3C;
          font-family: 'Source Code Pro', monospace;
          font-style: italic;
          font-size: 28px;
-         @media (min-width: 769px){
+
+         @media (min-width: 769px) {
             font-size: 40px;
             margin-bottom: 30px;
          }
-         @media (max-width: 768px) and (min-width: 570px){
+
+         @media (max-width: 768px) and (min-width: 570px) {
             display: inline;
             font-size: 36px;
          }
       }
    }
-  
-   .home__btn{
+
+   .home__btn {
       display: flex;
       justify-content: center;
    }
-   .home__shoes__button{
+
+   .home__shoes__button {
       width: 150px;
       height: 40px;
       border: 2px solid #EB3C3C;
@@ -67,8 +72,8 @@
       color: #EB3C3C;
       margin-top: 25px;
    }
-   
-   .input__box{
+
+   .input__box {
       display: flex;
       width: 100%;
       padding-right: 20px;
@@ -80,8 +85,9 @@
       @media (max-width: 768px) {
          margin-top: 30px;
          margin-bottom: 20px;
-       }
-      .input__icon-block{
+      }
+
+      .input__icon-block {
          display: flex;
          align-items: center;
          font-size: 20px;
@@ -90,30 +96,31 @@
       }
    }
 
-   .shoes-block{     
+   .shoes-block {
       margin-top: 30px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      .shoes-block__item{
+
+      .shoes-block__item {
          width: auto;
          width: 24%;
          margin-bottom: 30px;
-         @media (max-width: 1024px) and (min-width: 769px){
+
+         @media (max-width: 1024px) and (min-width: 769px) {
             width: 32%;
             margin-bottom: 30px;
          }
-         @media (max-width: 768px) and (min-width: 570px){
+
+         @media (max-width: 768px) and (min-width: 570px) {
             width: 49%;
          }
+
          @media (max-width: 569px) {
             width: 49%;
             margin-bottom: 20px;
-            }
+         }
       }
    }
 
 }
-
-
-
