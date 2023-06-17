@@ -3,7 +3,6 @@ import './Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser, faHouse, faHeart, faBell, faCartShopping } from '@fortawesome/free-solid-svg-icons';
-
 library.add(faUser, faHouse, faHeart, faBell, faCartShopping);
 
 export const Header = () => {

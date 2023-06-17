@@ -98,9 +98,13 @@
       .shoes-block__item{
          width: auto;
          width: 24%;
-         @media (max-width: 1024px) and (min-width: 570px){
+         margin-bottom: 30px;
+         @media (max-width: 1024px) and (min-width: 769px){
             width: 32%;
             margin-bottom: 30px;
+         }
+         @media (max-width: 768px) and (min-width: 570px){
+            width: 49%;
          }
          @media (max-width: 569px) {
             width: 49%;
