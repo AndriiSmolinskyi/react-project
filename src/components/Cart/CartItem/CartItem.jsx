@@ -5,9 +5,9 @@ import './CartItem.scss'
 export const CartItem = ({ item, handleDecrement, handleIncrement, handleRemoveItem }) => {
   const navigate = useNavigate();
 
-  const clickFull = (id) => {
+  function clickFull(id){
     navigate(`/shoesfull/${id}`);
-  };
+  }
 
   return (
     <li className="item">
@@ -15,14 +15,13 @@ export const CartItem = ({ item, handleDecrement, handleIncrement, handleRemoveI
         <div className='item__picture' onClick={() => clickFull(item.id)}>
           <img src={item.picture} alt="" className='item__picture__img'/>
         </div> 
-        <span onClick={() => clickFull(item.id)} className='item__block'>             
+        <span className='item__block'>             
           <p className='item__bane item__block__info'>Name: {item.name}</p>
           <p className='item__size item__block__info'>Size: {item.size}</p>
           <p className='item__price item__block__info'>Price: {(item.price * item.quantity) / 100}</p>
         </span>
       </div>
-     
-      
+
       <div className="btn__block">
         
         <div className="count__btn">
