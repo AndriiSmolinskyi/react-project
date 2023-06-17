@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
+import './ShoesFull.scss'
 export const ShoesFull = () => {
   const { id } = useParams();
   const [shoe, setShoe] = useState(null);
@@ -92,7 +92,7 @@ export const ShoesFull = () => {
 
   return (
     <div>
-      <h1>Shoes Full</h1>
+      <h1>Shoes</h1>
       <p>Id: {id}</p>
       <p>Name: {shoe.name}</p>
       <p>Price: {shoe.retail_price_cents}</p>
