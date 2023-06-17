@@ -40,11 +40,6 @@ export const Home = () => {
     setDisplayedShoesData(filteredShoesData);
   };
 
-
-  // const handleReset = () =>{
-  //   setDisplayedShoesData(shoesData);
-  // }
-
   const handleSearch = (query) => {
     const searchQueries = query.toLowerCase().split(' ');
 
@@ -80,7 +75,7 @@ export const Home = () => {
         </div> 
         <SortingButtons handleSort={handleSort} handleFilter={handleFilter}  />   
       </div>
-      {/* handleReset={handleReset} */}
+      
       <div className="shoes-block">
         {displayedShoesData.map(item => (
             <span key={item.id} onClick={() => clickFull(item.id)} className='shoes-block__item'>

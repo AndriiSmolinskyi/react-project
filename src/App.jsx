@@ -14,7 +14,7 @@ import { ShoesFull } from 'components/ShoesFull/ShoesFull';
 function App() {
   return (
     <div className='body'>
-      <Header className="header" />
+      <Header className="body__header" />
       <div className="wrapper">
         <Routes>
             <Route path="/" element={<Home />}/>

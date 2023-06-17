@@ -86,10 +86,10 @@ export const Cart = () => {
 
   if (!isAuth) {
     return (
-      <div>
-        <h1>Cart</h1>
-        <p>Please log in to view your cart items.</p>
-        <button onClick={clickLogin}>Log In</button>
+      <div className='block-none'>
+        <h1 className='block-none__title'>Cart</h1>
+        <p className='block-none__text'> Please log in to view your cart  items.</p>
+        <button onClick={() => clickLogin()} className='block-none__btn'>Log In</button>        
       </div>
     );
   }

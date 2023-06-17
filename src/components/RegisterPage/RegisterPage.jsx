@@ -1,14 +1,17 @@
 import { SignUp } from "../SignUp/SignUp";
 import { Link } from "react-router-dom"
-export const RegisterPage = () =>{
+import './RegisterPage.scss'
 
+export const RegisterPage = () =>{
    return(
-      <div>
-         <h1>Register</h1>
-         <SignUp/>
-         <p>
-            Already have an ccount? <Link to="/login">Sign In</Link>
-         </p>
+      <div className="auth-block">
+         <div className="temp-block"> 
+            <h1 className="auth-block__title">Register</h1>
+            <SignUp className="auth-block__btn"/>
+            <p className="auth-block__text"> 
+               Or <Link to="/login" className="auth-block__link">login</Link>
+            </p>
+         </div>        
       </div>
    )
 }

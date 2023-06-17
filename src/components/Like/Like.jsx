@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from "hooks/use-auth";
 import { useNavigate } from "react-router-dom";
+import "./Like.scss"
 
 export const Like = () => {
   const [likedItems, setLikedItems] = useState([]);
@@ -31,17 +32,17 @@ export const Like = () => {
 
    if (!isAuth) {
       return (
-         <div>
-            <h1>Likes</h1>
-            <p>Please log in to view your liked items.</p>
-            <button onClick={() => clickLogin()} >Log In</button>
+         <div className='block-none'>
+            <h1 className='block-none__title'>Likes</h1>
+            <p className='block-none__text'> Please log in to view your liked items.</p>
+            <button onClick={() => clickLogin()} className='block-none__btn'>Log In</button>        
          </div>
       );
    }
 
 
   return (
-    <div>
+    <div className='like'>
       <h1>Likes</h1>
       {likedItems.length > 0 ? (
         <ul>

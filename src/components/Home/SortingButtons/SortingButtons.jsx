@@ -25,10 +25,10 @@ export const SortingButtons = ({ handleSort, handleFilter, handleReset }) => {
 
   return (
     <div className="sorting-buttons">
-      <button onClick={handleSortAsc}>Lowest price</button>
-      <button onClick={handleSortDesc}>Highest price</button>
-      <button onClick={handleFilterMen}>Men</button>
-      <button onClick={handleFilterWomen}>Women</button>
+      <span onClick={handleSortAsc}>Lowest price</span>
+      <span onClick={handleSortDesc}>Highest price</span>
+      <span onClick={handleFilterMen}>Men</span>
+      <span onClick={handleFilterWomen}>Women</span>
       {/* <button onClick={handleResetFilters}>Reset</button>       */}
     </div>
   );
