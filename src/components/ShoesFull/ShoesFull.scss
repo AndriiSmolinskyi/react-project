@@ -42,6 +42,7 @@
          font-size: 24px;
          color: #eb3c3c;
          font-weight: 500;
+         
          @media (max-width: 816px) {
             margin-bottom: 25px;
          }
@@ -60,7 +61,7 @@
          margin-top: 10px;
          display: flex;
          gap: 20px;
-         
+
          @media (max-width: 816px) {
             margin-top: 25px;                    
          } 
