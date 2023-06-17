@@ -1,5 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
+import './CartItem.scss'
 
 export const CartItem = ({ item, handleDecrement, handleIncrement, handleRemoveItem }) => {
   const navigate = useNavigate();
@@ -10,16 +11,28 @@ export const CartItem = ({ item, handleDecrement, handleIncrement, handleRemoveI
 
   return (
     <li className="item">
-      <span onClick={() => clickFull(item.id)}>
-        <img src={item.picture} alt="" />
-        <p>Name: {item.name}</p>
-        <p>Size: {item.size}</p>
-        <p>Price: {(item.price * item.quantity) / 100}</p>
-      </span>
-      <p>Quantity: {item.quantity}</p>
-      <button onClick={() => handleDecrement(item.itemId, item.size)}>-</button>
-      <button onClick={() => handleIncrement(item.itemId, item.size)}>+</button>
-      <button onClick={() => handleRemoveItem(item.itemId, item.size)}>Remove</button>
+      <div className="full">
+        <div className='item__picture' onClick={() => clickFull(item.id)}>
+          <img src={item.picture} alt="" className='item__picture__img'/>
+        </div> 
+        <span onClick={() => clickFull(item.id)} className='item__block'>             
+          <p className='item__bane item__block__info'>Name: {item.name}</p>
+          <p className='item__size item__block__info'>Size: {item.size}</p>
+          <p className='item__price item__block__info'>Price: {(item.price * item.quantity) / 100}</p>
+        </span>
+      </div>
+     
+      
+      <div className="btn__block">
+        
+        <div className="count__btn">
+          <button onClick={() => handleIncrement(item.itemId, item.size)} className='item__btn'>+</button>
+          <p className='item__btn'>{item.quantity}</p>
+          <button onClick={() => handleDecrement(item.itemId, item.size)} className='item__btn'>-</button>  
+          <button onClick={() => handleRemoveItem(item.itemId, item.size)} className='item__btn remove'>remove</button>                  
+        </div>  
+                
+      </div>      
     </li>
   );
 };

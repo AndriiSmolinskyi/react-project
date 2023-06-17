@@ -95,11 +95,11 @@ export const Cart = () => {
   }
 
   return (
-    <div>
-      <h1>Cart</h1>
+    <div className='cart'>
+      <h1 className='cart__title'>Cart</h1>
       {cartItems.length > 0 ? (
-        <div>
-          <ul>
+        <div className='cart__block'>
+          <ul className='cart__block__ul'>
             {cartItems.map(item => (
               <CartItem
                 key={`${item.id}_${item.size}`}
@@ -110,20 +110,20 @@ export const Cart = () => {
               />
             ))}
           </ul>
-          <div>
-            <h3>Total Price: {getTotalPrice() / 100}</h3>
-            <button onClick={handleBuy}>Buy</button>
+          
+          <h3 className='cart__total'>Total Price: {getTotalPrice() / 100}</h3>
+          <div className='cart-block'>
+            <button onClick={handleBuy} className='cart__btn'>Buy</button>
           </div>
+          
           {showDelivery && <Delivery handleSubmit={handleDeliverySubmit} />}
           
         </div>
       ) : (
-        <p>Your cart is empty.</p>
+          <p className='cart__none'>Your cart is empty.</p>
+        
       )}
     </div>
   );
 }
-
-
-
 
