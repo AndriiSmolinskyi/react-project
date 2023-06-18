@@ -21,6 +21,6 @@ export const Notif = () =>{
    }
 
    return(
-      <h1>Notification</h1>
+      <h1 className="notif__title">Notification</h1>
    )
 }

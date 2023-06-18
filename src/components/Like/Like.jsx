@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from "hooks/use-auth";
 import { useNavigate } from "react-router-dom";
 import "./Like.scss"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faHeartCrack } from '@fortawesome/free-solid-svg-icons';
+library.add();
 
 export const Like = () => {
   const [likedItems, setLikedItems] = useState([]);
@@ -43,17 +47,19 @@ export const Like = () => {
 
   return (
     <div className='like'>
-      <h1>Likes</h1>
+      <h1 className='like__title'>Likes</h1>
       {likedItems.length > 0 ? (
-        <ul>
+        <ul className='like__block'>
           {likedItems.map(item => (
-            <li key={item.id}>
-              <span key={item.id} onClick={() => clickFull(item.id)}>
-                <p>Name: {item.name}</p>
-                <p>Price: {item.price/100}</p>
+            <li key={item.id} className='like__item'>
+              <span key={item.id} onClick={() => clickFull(item.id)} className='like__item__info'>
                 <div><img src={item.picture} alt="" /></div>
+                <p>Name: {item.name}</p>
+                <p>Price: {item.price/100}$</p>                
               </span>
-              <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
+              <button onClick={() => handleRemoveItem(item.id)} className='like__block__btn'>
+                <span>Remove like</span><FontAwesomeIcon icon={faHeartCrack} />
+              </button>
             </li>
           ))}
         </ul>

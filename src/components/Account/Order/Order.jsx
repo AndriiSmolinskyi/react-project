@@ -1,3 +1,4 @@
+import "./Order.scss"
 
 export const Order = () => {
    const userId = localStorage.getItem('userId');
