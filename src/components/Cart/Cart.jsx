@@ -120,7 +120,7 @@ export const Cart = () => {
             <button onClick={handleBuy} className="cart__btn">Купити</button>
           </div>
 
-          {showDelivery && <Delivery handleSubmit={handleDeliverySubmit} />}
+          {showDelivery && <Delivery handleSubmit={handleDeliverySubmit} className="delivery__btn"/>}
 
         </div>
       ) : (

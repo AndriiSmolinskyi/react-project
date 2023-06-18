@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import './Delivery.scss'
 
 export const Delivery = ({ handleSubmit }) => {
    const initialValues = {
@@ -22,11 +23,11 @@ export const Delivery = ({ handleSubmit }) => {
    });
  
    return (
-     <div className='delivery'>
-       <h2 className='delivery__title'>Delivery</h2>
-       <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
+     <div className='delivery'>      
+       <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit} className="delivery__formik">
          {({ isSubmitting }) => (
            <Form className='delivery__form'>
+            <h2 className='delivery__title'>Delivery</h2>
              <div className='delivery__form__item'>
                <label htmlFor="firstName" className='item__text'>First Name:</label>
                <Field type="text" name="firstName" className="item__field"/>
@@ -57,7 +58,7 @@ export const Delivery = ({ handleSubmit }) => {
                <Field type="text" name="street" className="item__field"/>
                <ErrorMessage name="street" component="div" className="error-message" />
              </div>
-             <button type="submit" disabled={isSubmitting} className='item__btn'>
+             <button type="submit" disabled={isSubmitting} className='item__btn__form'>
                Submit
              </button>
            </Form>

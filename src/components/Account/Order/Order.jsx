@@ -11,7 +11,7 @@ export const Order = () => {
          <div className="order__block">
            {orders.map(order => (
              <div key={order.id} className="order__block__list">
-              <div className="delivery">
+              <div className="delivery__info">
                 <p>From: {order.source}</p>
                 <p>To: {order.destination}</p>
               </div>
