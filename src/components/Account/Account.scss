@@ -1,0 +1,15 @@
+.account {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+
+   .account__title {
+      font-size: 36px;
+      color: #eb3c3c;
+      margin-bottom: 20px;
+   }
+
+   .account__btn{
+      font-size: 24px;
+   }
+}

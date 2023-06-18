@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import { useAuth } from 'hooks/use-auth';
 import { useDispatch } from 'react-redux';
 import { removeUser } from 'store/slices/userSlice';
 import { Order } from './Order/Order';
 import { Navigate } from 'react-router-dom';
+import './Account.scss';
 
 export const Account = () => {
   const { isAuth, email } = useAuth();
@@ -16,7 +16,7 @@ export const Account = () => {
   };
 
   const handleOrderClick = () => {
-    setShowOrder(true);
+    setShowOrder(prevState => !prevState);
   };
 
   if (!isAuth) {
@@ -24,13 +24,11 @@ export const Account = () => {
   }
 
   return (
-    <div>
-      <h1>Welcome</h1>
-      <button onClick={handleLogout}>Log out from {email}</button>
-      <button onClick={handleOrderClick}>Your order</button>
+    <div className='account'>
+      <h1 className='account__title'>Welcome</h1>
+      <div><button onClick={handleLogout} className='account__btn'>Log out from {email}</button></div>
+      <div><button onClick={handleOrderClick} className='account__btn'>Your order</button></div>
       {showOrder && <Order />}
     </div>
   );
 };
-
-

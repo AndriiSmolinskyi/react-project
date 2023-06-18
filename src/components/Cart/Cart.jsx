@@ -72,7 +72,7 @@ export const Cart = () => {
       id: Date.now(),
       items: cartItems,
       source: 'Warsaw',
-      destination: `${deliveryData.country}, ${deliveryData.city}, ${deliveryData.street}`,
+      destination: `${deliveryData.firstName}, ${deliveryData.lastName}, ${deliveryData.country}, ${deliveryData.city}, ${deliveryData.street}`,
     };
     const previousOrders = JSON.parse(localStorage.getItem(`orders_${userId}`)) || [];
     const updatedOrders = [...previousOrders, order];
@@ -90,16 +90,16 @@ export const Cart = () => {
   if (!isAuth) {
     return (
       <div className="block-none">
-        <h1 className="block-none__title">Кошик</h1>
-        <p className="block-none__text">Будь ласка, увійдіть, щоб переглянути товари у кошику.</p>
-        <button onClick={() => clickLogin()} className="block-none__btn">Увійти</button>
+        <h1 className="block-none__title">Cart</h1>
+        <p className="block-none__text">Please log in to view your cart.</p>
+        <button onClick={() => clickLogin()} className="block-none__btn">Log in</button>
       </div>
     );
   }
 
   return (
     <div className="cart">
-      <h1 className="cart__title">Кошик</h1>
+      <h1 className="cart__title">Cart</h1>
       {cartItems.length > 0 ? (
         <div className="cart__block">
           <ul className="cart__block__ul">
@@ -115,7 +115,7 @@ export const Cart = () => {
             ))}
           </ul>
 
-          <h3 className="cart__total">Загальна вартість: {getTotalPrice() / 100}$</h3>
+          <h3 className="cart__total">Total price: {getTotalPrice() / 100}$</h3>
           <div className="cart-block">
             <button onClick={handleBuy} className="cart__btn">Купити</button>
           </div>
@@ -124,7 +124,7 @@ export const Cart = () => {
 
         </div>
       ) : (
-        <p className="cart__none">Ваш кошик порожній.</p>
+        <p className="cart__none">Cart is empty.</p>
       )}
     </div>
   );

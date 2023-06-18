@@ -22,42 +22,42 @@ export const Delivery = ({ handleSubmit }) => {
    });
  
    return (
-     <div>
-       <h2>Delivery</h2>
+     <div className='delivery'>
+       <h2 className='delivery__title'>Delivery</h2>
        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
          {({ isSubmitting }) => (
-           <Form>
-             <div>
-               <label htmlFor="firstName">First Name:</label>
-               <Field type="text" name="firstName" />
-               <ErrorMessage name="firstName" component="div" className="error-message" />
+           <Form className='delivery__form'>
+             <div className='delivery__form__item'>
+               <label htmlFor="firstName" className='item__text'>First Name:</label>
+               <Field type="text" name="firstName" className="item__field"/>
+               <ErrorMessage name="firstName" component="div" className="error-message"/>
              </div>
-             <div>
-               <label htmlFor="lastName">Last Name:</label>
-               <Field type="text" name="lastName" />
+             <div className='delivery__form__item'>
+               <label htmlFor="lastName" className='item__text'>Last Name:</label>
+               <Field type="text" name="lastName" className="item__field"/>
                <ErrorMessage name="lastName" component="div" className="error-message" />
              </div>
-             <div>
-               <label htmlFor="phone">Phone:</label>
-               <Field type="text" name="phone" />
+             <div className='delivery__form__item'>
+               <label htmlFor="phone" className='item__text'>Phone:</label>
+               <Field type="text" name="phone" className="item__field"/>
                <ErrorMessage name="phone" component="div" className="error-message" />
              </div>
-             <div>
-               <label htmlFor="country">Country:</label>
-               <Field type="text" name="country" />
+             <div className='delivery__form__item'>
+               <label htmlFor="country" className='item__text'>Country:</label>
+               <Field type="text" name="country" className="item__field"/>
                <ErrorMessage name="country" component="div" className="error-message" />
              </div>
-             <div>
-               <label htmlFor="city">City:</label>
-               <Field type="text" name="city" />
+             <div className='delivery__form__item'>
+               <label htmlFor="city" className='item__text'>City:</label>
+               <Field type="text" name="city" className="item__field"/>
                <ErrorMessage name="city" component="div" className="error-message" />
              </div>
-             <div>
-               <label htmlFor="street">Street:</label>
-               <Field type="text" name="street" />
+             <div className='delivery__form__item'>
+               <label htmlFor="street" className='item__text'>Street:</label>
+               <Field type="text" name="street" className="item__field"/>
                <ErrorMessage name="street" component="div" className="error-message" />
              </div>
-             <button type="submit" disabled={isSubmitting}>
+             <button type="submit" disabled={isSubmitting} className='item__btn'>
                Submit
              </button>
            </Form>
