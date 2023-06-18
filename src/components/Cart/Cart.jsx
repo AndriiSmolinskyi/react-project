@@ -1,10 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { useAuth } from 'hooks/use-auth';
 import { useNavigate } from 'react-router-dom';
-import { CartItem } from './CartItem/CartItem';
+import {CartItem} from './CartItem/CartItem';
 import './Cart.scss';
-import { Delivery } from './Delivery/Delivery';
+import {Delivery} from './Delivery/Delivery';
 
 export const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -84,22 +83,26 @@ export const Cart = () => {
     localStorage.setItem(`cart_${userId}`, JSON.stringify([]));
   };
 
+  const clickFull = id => {
+    navigate(`/shoesfull/${id}`);
+  };
+
   if (!isAuth) {
     return (
-      <div className='block-none'>
-        <h1 className='block-none__title'>Cart</h1>
-        <p className='block-none__text'> Please log in to view your cart  items.</p>
-        <button onClick={() => clickLogin()} className='block-none__btn'>Log In</button>        
+      <div className="block-none">
+        <h1 className="block-none__title">Кошик</h1>
+        <p className="block-none__text">Будь ласка, увійдіть, щоб переглянути товари у кошику.</p>
+        <button onClick={() => clickLogin()} className="block-none__btn">Увійти</button>
       </div>
     );
   }
 
   return (
-    <div className='cart'>
-      <h1 className='cart__title'>Cart</h1>
+    <div className="cart">
+      <h1 className="cart__title">Кошик</h1>
       {cartItems.length > 0 ? (
-        <div className='cart__block'>
-          <ul className='cart__block__ul'>
+        <div className="cart__block">
+          <ul className="cart__block__ul">
             {cartItems.map(item => (
               <CartItem
                 key={`${item.id}_${item.size}`}
@@ -107,23 +110,22 @@ export const Cart = () => {
                 handleDecrement={handleDecrement}
                 handleIncrement={handleIncrement}
                 handleRemoveItem={handleRemoveItem}
+                clickFull = {clickFull}
               />
             ))}
           </ul>
-          
-          <h3 className='cart__total'>Total Price: {getTotalPrice() / 100}$</h3>
-          <div className='cart-block'>
-            <button onClick={handleBuy} className='cart__btn'>Buy</button>
+
+          <h3 className="cart__total">Загальна вартість: {getTotalPrice() / 100}$</h3>
+          <div className="cart-block">
+            <button onClick={handleBuy} className="cart__btn">Купити</button>
           </div>
-          
+
           {showDelivery && <Delivery handleSubmit={handleDeliverySubmit} />}
-          
+
         </div>
       ) : (
-          <p className='cart__none'>Your cart is empty.</p>
-        
+        <p className="cart__none">Ваш кошик порожній.</p>
       )}
     </div>
   );
-}
-
+};

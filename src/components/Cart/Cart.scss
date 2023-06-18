@@ -20,6 +20,9 @@
    font-size: 36px;
    color: #eb3c3c;
    margin-bottom: 20px;
+   @media (max-width: 576px) {
+      text-align: center;
+   }
 }
 
 .cart__none{
@@ -27,9 +30,10 @@
 }
 
 .cart__total{
-   margin-top: 15px;
-   margin-bottom: 15px;
+   margin-top: 25px;
+   margin-bottom: 25px;
    font-size: 24px;
+   color:#EB3C3C;
 }
 
 .cart-block{
@@ -42,6 +46,7 @@
       color: white;
       font-size: 20px;
       background-color: #EB3C3C;
+      margin-bottom: 20px;
       
    }
    .cart__btn:hover{
