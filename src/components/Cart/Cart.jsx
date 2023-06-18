@@ -117,7 +117,7 @@ export const Cart = () => {
 
           <h3 className="cart__total">Total price: {getTotalPrice() / 100}$</h3>
           <div className="cart-block">
-            <button onClick={handleBuy} className="cart__btn">Купити</button>
+            <button onClick={handleBuy} className="cart__btn">Buy</button>
           </div>
 
           {showDelivery && <Delivery handleSubmit={handleDeliverySubmit} className="delivery__btn"/>}
