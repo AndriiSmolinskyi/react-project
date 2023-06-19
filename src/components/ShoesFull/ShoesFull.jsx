@@ -17,7 +17,7 @@ export const ShoesFull = () => {
   const [isSizeSelected, setIsSizeSelected] = useState(true);
 
   useEffect(() => {
-    axios.get('/json/api.json').then((res) => {
+    axios.get('/react-project/json/api.json').then((res) => {
       const shoesData = res.data.sneakers;
       const selectedShoe = shoesData.find((item) => item.id === parseInt(id));
       setShoe(selectedShoe);
